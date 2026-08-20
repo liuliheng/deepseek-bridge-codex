@@ -25,7 +25,7 @@ npm run labctl -- agents
 - `packages/adapters`：Codex App Server、DeepSeek Harness headless adapter，以及仅供自动化测试使用的测试 adapter
 - `packages/sdk`：Unix socket 客户端
 - `plugins`：Codex plugin、DeepSeek companion MCP
-- `schemas/codex`：由当前 Codex CLI 生成的协议 schema
+- `npm run generate:codex-schema`：需要排查 Codex App Server 协议时，按需生成当前 CLI 版本的 schema（生成目录不入库）
 - `tests`：协议、安全、存储、路由、审批、IPC 集成测试
 
 要求 Node.js 24+。项目运行时无第三方 npm 依赖。

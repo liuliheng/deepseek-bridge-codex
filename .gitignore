@@ -3,6 +3,7 @@ node_modules/
 .lab-artifacts/
 coverage/
 dist/
+schemas/
 *.db
 *.db-shm
 *.db-wal
