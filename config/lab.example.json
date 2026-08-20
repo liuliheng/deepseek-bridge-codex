@@ -1,0 +1,17 @@
+{
+  "socketPath": ".lab-data/labd.sock",
+  "databasePath": ".lab-data/lab.db",
+  "tokenPath": ".lab-data/token",
+  "codex": {
+    "mode": "app-server",
+    "command": "/Applications/ChatGPT.app/Contents/Resources/codex",
+    "imageGenerate": false
+  },
+  "deepseek": {
+    "mode": "cli",
+    "command": "dsh",
+    "args": ["--profile", "headless"]
+  },
+  "maxConcurrentPerAgent": 4,
+  "maxMessageBytes": 262144
+}

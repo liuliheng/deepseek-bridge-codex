@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "deepseek-bridge": {
+      "command": "node",
+      "args": [
+        "<LAB_ROOT>/plugins/codex-bridge/mcp-server/index.ts",
+        "--target=deepseek"
+      ],
+      "env": {
+        "LAB_PROJECT_ROOT": "<LAB_ROOT>",
+        "LAB_DEEPSEEK_MODE": "cli",
+        "LAB_DEEPSEEK_COMMAND": "<DSH_COMMAND>",
+        "LAB_DEEPSEEK_ARGS_JSON": "[\"--profile\",\"headless\"]",
+        "LAB_MCP_DIRECT_ONLY": "true"
+      }
+    }
+  }
+}

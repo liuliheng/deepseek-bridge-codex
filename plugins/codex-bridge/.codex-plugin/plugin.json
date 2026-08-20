@@ -1,0 +1,26 @@
+{
+  "name": "codex-bridge",
+  "version": "0.2.0+codex.20260820085420",
+  "description": "Route user-assigned work bidirectionally between Codex and DeepSeek Harness through Local Agent Bridge.",
+  "author": {
+    "name": "Local Agent Bridge"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Codex Bridge",
+    "shortDescription": "Route explicitly delegated tasks to a local DeepSeek Harness.",
+    "longDescription": "When a Codex user affirmatively and directly assigns a task to DSH, DeepSeek Harness, or DeepSeek as the executor, sends the full task to a new real DSH headless run and returns its result through an auditable local bridge. Mere mentions do not trigger delegation.",
+    "developerName": "Local Agent Bridge",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use DeepSeek Harness to complete this task and verify the result.",
+      "Check whether the local agent bridge is ready."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

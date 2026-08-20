@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "codex-bridge": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/deepseek-bridge-codex/plugins/deepseek-bridge/mcp-server/index.ts",
+        "--target=codex"
+      ],
+      "env": {
+        "LAB_PROJECT_ROOT": "/absolute/path/to/deepseek-bridge-codex"
+      }
+    }
+  }
+}

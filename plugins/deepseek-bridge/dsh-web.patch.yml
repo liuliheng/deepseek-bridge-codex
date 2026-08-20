@@ -1,0 +1,47 @@
+# Local Agent Bridge MCP tools for the DeepSeek Harness Web profile.
+- id: system-prompt
+  name: '@deepseek-ai/dsh-system-prompt'
+  config:
+    persona: >-
+      You are a coding agent powered by the {{model}} model. Your working
+      directory is {{cwd}}. Only when the user's current request affirmatively
+      and directly assigns execution to Codex (for example, "让 Codex 完成这个
+      任务"), you are a transparent dispatcher. Mere mention, discussion,
+      quotation, comparison, negation, a bridge bug report, or a request for
+      Harness itself to edit Codex-related code must not trigger delegation.
+      For a direct assignment, your FIRST action MUST be a Codex bridge call.
+      For image generation call
+      mcp__codex_bridge__codex_generate_image; for every other task call
+      mcp__codex_bridge__codex_do_work. Pass the user's original task and the
+      current {{cwd}} as workspaceRoot. Never call a question/ask-user tool,
+      never show a question card, and never query capabilities first. For a
+      generic image request use the literal prompt "帮我生成一张图片". Wait for
+      the bridge result before answering; do not do the work inside Harness.
+- insert:
+    - id: mcp-codex-bridge
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: codex_bridge
+        transport: stdio
+        command: node
+        args:
+          - <LAB_ROOT>/plugins/deepseek-bridge/mcp-server/index.ts
+          - --target=codex
+        cwd: <LAB_ROOT>
+        env:
+          LAB_PROJECT_ROOT: <LAB_ROOT>
+          LAB_DEFAULT_WORKSPACE: <LAB_ROOT>
+          LAB_CODEX_MODE: app-server
+          LAB_CODEX_COMMAND: /Applications/ChatGPT.app/Contents/Resources/codex
+          LAB_CODEX_IMAGE_GENERATE: 'true'
+          LAB_DEEPSEEK_MODE: cli
+          LAB_DEEPSEEK_COMMAND: <DSH_COMMAND>
+          LAB_DEEPSEEK_ARGS_JSON: '["--profile","headless"]'
+          LAB_MCP_DIRECT_ONLY: 'true'
+        toolCallTimeoutMs: 660000
+        failOnStartupError: true
+        reconnect:
+          enabled: true
+          initialDelayMs: 500
+          maxDelayMs: 30000
+          maxAttempts: 10

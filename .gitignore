@@ -1,0 +1,9 @@
+node_modules/
+.lab-data/
+.lab-artifacts/
+coverage/
+dist/
+*.db
+*.db-shm
+*.db-wal
+.DS_Store

@@ -1,0 +1,22 @@
+{
+  "name": "local-agent-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "plugins/*"
+  ],
+  "scripts": {
+    "start": "node apps/labd/src/main.ts",
+    "labctl": "node apps/labctl/src/main.ts",
+    "test": "node --test --test-concurrency=1 tests/*.test.ts",
+    "check": "node scripts/check.ts",
+    "smoke:direct": "node scripts/smoke-mcp-direct.ts",
+    "generate:codex-schema": "node scripts/generate-codex-schema.ts"
+  }
+}

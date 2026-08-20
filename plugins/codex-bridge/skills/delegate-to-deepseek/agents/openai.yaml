@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delegate to DeepSeek"
+  short_description: "Delegate bounded tasks through Local Agent Bridge"
+  default_prompt: "Delegate this bounded subtask to DeepSeek and verify the result."
